@@ -1,0 +1,7 @@
+[user]
+	name = duhow
+	email = contacto@duhowpi.net
+[alias]
+	adog = log --all --decorate --oneline --graph
+[core]
+	editor = vim

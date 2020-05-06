@@ -10,8 +10,12 @@ then
     echo "[*] $FILE -> $ZSH_CUSTOM"
     cp -f $FILE $ZSH_CUSTOM/
   done
+
   # p10k
   [ -e $HOME/.p10k.zsh ] || ln -s $ZSH_CUSTOM/p10k.zsh $HOME/.p10k.zsh
-  echo "[*] zshrc -> $HOME"
-  cp -f zshrc $HOME/.zshrc
 fi
+
+for FILE in zshrc gitconfig; do
+  echo "[*] $FILE -> $HOME"
+  cp -f $FILE $HOME/.${FILE}
+done
