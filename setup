@@ -3,11 +3,15 @@
 
 unalias cp 2>/dev/null
 
+_log(){
+  echo "[*] $1 -> $2"
+}
+
 # Setup oh-my-zsh alias
 if [ ! -z $ZSH_CUSTOM ]
 then
   for FILE in *.zsh; do
-    echo "[*] $FILE -> $ZSH_CUSTOM"
+    _log $FILE $ZSH_CUSTOM
     cp -f $FILE $ZSH_CUSTOM/
   done
 
@@ -16,6 +20,9 @@ then
 fi
 
 for FILE in zshrc gitconfig; do
-  echo "[*] $FILE -> $HOME"
+  _log $FILE $HOME
   cp -f $FILE $HOME/.${FILE}
 done
+
+_log spacevim.toml $HOME/.SpaceVim.d
+cp -f spacevim.toml $HOME/.SpaceVim.d/init.toml

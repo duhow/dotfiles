@@ -12,6 +12,6 @@ export ZSH="/home/duhow/.oh-my-zsh"
 #ZSH_THEME="robbyrussell"
 ZSH_THEME="powerlevel10k/powerlevel10k"
 
-plugins=(git common-aliases docker docker-compose httpie nmap pass rsync salt sudo tmux transfer wd web-search)
+plugins=(git fzf common-aliases docker docker-compose httpie nmap pass rsync salt sudo tmux transfer wd web-search)
 
 source $ZSH/oh-my-zsh.sh
