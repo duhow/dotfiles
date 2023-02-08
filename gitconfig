@@ -3,5 +3,8 @@
 	email = contacto@duhowpi.net
 [alias]
 	adog = log --all --decorate --oneline --graph
+  p = push
 [core]
 	editor = vim
+[help]
+  autocorrect = 2

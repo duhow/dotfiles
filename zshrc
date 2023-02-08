@@ -5,13 +5,15 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
-export PATH=$HOME/.local/bin:$PATH
+export PATH=$HOME/.local/bin:$HOME/go/bin:${KREW_ROOT:-$HOME/.krew}/bin:$PATH
 # Path to your oh-my-zsh installation.
-export ZSH="/home/duhow/.oh-my-zsh"
+export ZSH="${HOME}/.oh-my-zsh"
 
 #ZSH_THEME="robbyrussell"
 ZSH_THEME="powerlevel10k/powerlevel10k"
 
-plugins=(git fzf common-aliases docker docker-compose httpie nmap pass rsync salt sudo tmux transfer wd web-search)
+plugins=(git fzf common-aliases docker docker-compose httpie nmap pass rsync salt sudo tmux transfer wd web-search kubectl helm)
 
+# stop adding escape characters
+DISABLE_MAGIC_FUNCTIONS=true
 source $ZSH/oh-my-zsh.sh
