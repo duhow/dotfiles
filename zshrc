@@ -6,6 +6,12 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
 fi
 
 export PATH=$HOME/.local/bin:$HOME/go/bin:${KREW_ROOT:-$HOME/.krew}/bin:$PATH
+
+# Add Homebrew if installed
+if [ -e "/home/linuxbrew/.linuxbrew/" ]; then
+  eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+fi
+
 # Path to your oh-my-zsh installation.
 export ZSH="${HOME}/.oh-my-zsh"
 
