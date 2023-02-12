@@ -9,6 +9,11 @@ alias sl='echo I think you misspelled it... ; ls'
 alias df='df -x"squashfs"'
 command -v nvim >/dev/null && alias vim='nvim'
 
+if command -v codium >/dev/null; then
+  alias code='codium'
+  alias vscode='codium'
+fi
+
 alias azls='az account list -o table'
 alias azset='az account set --subscription'
 
