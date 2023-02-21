@@ -8,3 +8,7 @@
 	editor = vim
 [help]
   autocorrect = 2
+[push]
+	autoSetupRemote = true
+[advice]
+	addEmptyPathspec = false
