@@ -20,3 +20,5 @@ alias azset='az account set --subscription'
 alias tf='terraform'
 alias tfp='terraform plan -parallelism=20 -out tfplan'
 alias tfap='terraform apply -parallelism=20 tfplan'
+
+alias scrcpy="scrcpy --encoder 'OMX.google.h264.encoder' -S -m 1280"
