@@ -26,3 +26,10 @@ alias scrcpy="scrcpy --encoder 'OMX.google.h264.encoder' -S -m 1280"
 # egoist/bina - github.com/OWNER/NAME@v1.2.3
 _bina() { curl -fsSL "https://bina.egoist.dev/$@" | sh; }
 alias bina=_bina
+
+PIPER="/opt/piper/piper"
+if [ -f "${PIPER}" ]; then
+  PIPER_MODEL="`dirname ${PIPER}`/ca-upc_ona-x-low.onnx"
+  _piper(){ echo "$@" | ${PIPER} -m ${PIPER_MODEL} --output_raw | aplay -f S16_LE -c 1 -r 16000 2>/dev/null };
+  alias piper=_piper
+fi
