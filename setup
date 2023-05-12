@@ -13,6 +13,10 @@ then
   for FILE in *.zsh; do
     _log $FILE $ZSH_CUSTOM
     cp -f $FILE $ZSH_CUSTOM/
+    if [ -e "local/${FILE}" ]; then
+      _log "Appending local/${FILE}" $ZSH_CUSTOM
+      cat "local/${FILE}" >> $ZSH_CUSTOM/$FILE
+    fi
   done
 
   # p10k
