@@ -23,3 +23,5 @@ plugins=(asdf git fzf common-aliases docker docker-compose httpie nmap pass rsyn
 # stop adding escape characters
 DISABLE_MAGIC_FUNCTIONS=true
 source $ZSH/oh-my-zsh.sh
+
+[ -e "$HOME/.bash_secrets" ] && source ${HOME}/.bash_secrets

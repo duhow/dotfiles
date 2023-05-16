@@ -33,3 +33,55 @@ if [ -f "${PIPER}" ]; then
   _piper(){ echo "$@" | ${PIPER} -m ${PIPER_MODEL} --output_raw | aplay -f S16_LE -c 1 -r 16000 2>/dev/null };
   alias piper=_piper
 fi
+
+function gpt() {
+  if [ -z "$OPENAI_API_KEY" ]; then
+    echo "[!] OPENAI_API_KEY is empty."
+    return
+  fi
+
+  # Set the model name
+  #MODEL_NAME="davinci"
+  MODEL_NAME="gpt-3.5-turbo"
+
+  # Get user input
+  local query="$*"
+
+  # Call the OpenAI API to get a response
+  # NOTE: QUERY and ENDPOINT ARE DIFFERENT!
+  # davinci model uses "prompt". gpt-3.5-turbo uses "messages".
+
+  if [ "$MODEL_NAME" = "davinci" ]; then
+    local endpoint="completions"
+    local body_data="{\"model\": \"$MODEL_NAME\", \"prompt\": \"$query\", \"max_tokens\": 100}"
+    local response_query=".choices[].text"
+  elif [ "$MODEL_NAME" = "gpt-3.5-turbo" ]; then
+    local endpoint="chat/completions"
+    local body_data="{\"model\": \"$MODEL_NAME\", \"messages\": [{\"role\": \"system\", \"content\": \"You are a helpful assistant.\"}, {\"role\": \"user\", \"content\": \"$query\"}]}"
+    local response_query=".choices[].message.content"
+  fi
+  local response=$(mktemp --tmpdir gpt.XXXXXXXX)
+  curl -s -X POST \
+    --output $response \
+    --fail \
+    -H "Content-Type: application/json" \
+    -H "Authorization: Bearer $OPENAI_API_KEY" \
+    -d $body_data \
+    "https://api.openai.com/v1/$endpoint"
+
+  # Check for errors in the response
+  local error=$(jq -r ".error" $response)
+  if [[ "$error" != "null" ]]; then
+      local error_message=$(jq -r ".error.message" $response)
+      echo "Error: $error_message"
+      [ -z "$DEBUG" ] && rm -f $response
+      return 1
+  fi
+
+  # Extract the generated text from the API response
+  local completion=$(jq -r $response_query $response)
+
+  # Print the completion
+  echo "> $completion"
+  [ -z "$DEBUG" ] && rm -f $response
+}
