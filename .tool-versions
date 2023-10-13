@@ -1,3 +1,6 @@
+# setup global
+# for N in `rtx ls | awk '{print $1}'`; do rtx which $N >/dev/null && sudo ln -svf `rtx which $N` /usr/local/bin/ ; done
+
 # kubernetes things
 helm          latest
 kind          latest
