@@ -25,3 +25,4 @@ DISABLE_MAGIC_FUNCTIONS=true
 source $ZSH/oh-my-zsh.sh
 
 [ -e "$HOME/.bash_secrets" ] && source ${HOME}/.bash_secrets
+#[ -e "$HOME/.local/share/rtx/shims" ] && PATH=$HOME/.local/share/rtx/shims:$PATH
