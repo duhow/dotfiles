@@ -21,10 +21,11 @@ alias tf='terraform'
 alias tfp='terraform plan -parallelism=20 -out tfplan'
 alias tfap='terraform apply -parallelism=20 tfplan'
 
-alias scrcpy="scrcpy --video-encoder 'OMX.google.h264.encoder' -S -m 1280"
+alias scrcpy="scrcpy --video-codec=h264 --video-encoder 'OMX.qcom.video.encoder.avc' -S -m 1600"
+alias gitleaks="docker run --rm -it -v $PWD:/src -w /src zricethezav/gitleaks:latest"
 
 # egoist/bina - github.com/OWNER/NAME@v1.2.3
-_bina() { curl -fsSL "https://bina.egoist.dev/$@" | sh; }
+_bina() { curl -fsSL "https://bina.egoist.dev/$@" | sudo sh; }
 alias bina=_bina
 
 PIPER="/opt/piper/piper"
