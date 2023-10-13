@@ -1,0 +1,25 @@
+# kubernetes things
+helm          latest
+kind          latest
+minikube      latest
+kubectl       latest
+#kube-linter   latest
+kubelogin     latest # azure
+flux2         latest
+syft          latest
+grype         latest
+trivy         latest
+
+#ngrok         latest
+
+yq            latest
+act           latest
+cosign        latest
+regctl        latest
+sops          latest
+terraform     latest
+tflint        latest
+
+#scrcpy        latest
+#yt-dlp        latest
+#xsos          latest
