@@ -11,7 +11,7 @@ git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-~
 
 # python stuff
 python_libs=(pycodestyle pylint pynvim pre-commit)
-pip3 install --user ${python_libs[*]}
+pip3 install --user --break-system-packages ${python_libs[*]}
 
 cat /etc/*-release | grep -q debian
 if [ $? -eq 0 ]; then
