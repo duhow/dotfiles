@@ -35,4 +35,4 @@ jobs:
         DEBIAN_FRONTEND: noninteractive
       run: ./install.sh
     - name: Run setup
-      run: source setup
+      run: zsh -c 'source setup'
