@@ -1,0 +1,39 @@
+name: Test
+
+on:
+  push:
+    branches:
+      - master
+
+defaults:
+  run:
+    shell: bash
+    working-directory: .dotfiles
+
+jobs:
+  test:
+    name: Test
+    runs-on: ubuntu-latest
+    container:
+      image: ubuntu:22.04
+    steps:
+    - uses: actions/checkout@v4
+      with:
+        path: .dotfiles
+    - name: Install dependencies
+      run: |
+        apt update
+        apt install -y \
+          sudo \
+          python3-pip \
+          neovim \
+          git \
+          curl \
+          zsh
+        pip3 install --upgrade pip
+    - name: Run install
+      env:
+        DEBIAN_FRONTEND: noninteractive
+      run: ./install.sh
+    - name: Run setup
+      run: source setup
