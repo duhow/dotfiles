@@ -9,6 +9,9 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/too
 # p10k
 git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/themes/powerlevel10k
 
+# mise / rtx
+curl -sLf https://mise.run | sh
+
 # python stuff
 python_libs=(pycodestyle pylint pynvim pre-commit)
 pip3 install --user --break-system-packages ${python_libs[*]}
