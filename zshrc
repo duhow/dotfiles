@@ -18,7 +18,7 @@ export ZSH="${HOME}/.oh-my-zsh"
 #ZSH_THEME="robbyrussell"
 ZSH_THEME="powerlevel10k/powerlevel10k"
 
-plugins=(rtx git fzf common-aliases docker docker-compose httpie nmap pass rsync salt sudo tmux transfer wd web-search kubectl helm)
+plugins=(mise git fzf common-aliases docker docker-compose httpie nmap pass rsync salt sudo tmux transfer wd web-search kubectl helm)
 
 # stop adding escape characters
 DISABLE_MAGIC_FUNCTIONS=true
