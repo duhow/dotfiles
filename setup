@@ -28,5 +28,7 @@ for FILE in zshrc gitconfig; do
   cp -f $FILE $HOME/.${FILE}
 done
 
-_log spacevim.toml $HOME/.SpaceVim.d
-cp -f spacevim.toml $HOME/.SpaceVim.d/init.toml
+TDIR=$HOME/.SpaceVim.d
+_log spacevim.toml $TDIR
+mkdir -p $TDIR
+cp -f spacevim.toml ${TDIR}/init.toml
