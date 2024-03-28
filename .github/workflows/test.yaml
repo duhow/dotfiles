@@ -26,7 +26,6 @@ jobs:
         apt install -y \
           sudo \
           python3-pip \
-          neovim \
           git \
           curl \
           zsh

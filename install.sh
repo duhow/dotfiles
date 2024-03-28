@@ -18,5 +18,5 @@ pip3 install --user --break-system-packages ${python_libs[*]}
 
 cat /etc/*-release | grep -q debian
 if [ $? -eq 0 ]; then
-  sudo apt install fzf exuberant-ctags lolcat neovim
+  sudo apt install -y fzf exuberant-ctags lolcat neovim
 fi
