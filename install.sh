@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # spacevim
-sh -c "$(curl -sLf https://spacevim.org/install.sh)"
+curl -sLf https://spacevim.org/install.sh | bash
 
 # oh-my-zsh
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
