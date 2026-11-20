@@ -11,6 +11,19 @@ git clone https://github.com/duhow/dotfiles $HOME/.dotfiles
 - Reopen terminal and check `zsh` is running
 - Run `source setup` to copy files to their location
 
+## Karabiner-Elements (macOS)
+
+`karabiner/` holds `karabiner.json` and `assets/complex_modifications`.
+`source setup` copies them to `~/.config/karabiner` (backing up any existing `karabiner.json` first);
+Karabiner-Elements reloads the file automatically.
+
+To refresh the backup after changing rules:
+
+```sh
+cp ~/.config/karabiner/karabiner.json ~/.dotfiles/karabiner/
+cp -R ~/.config/karabiner/assets ~/.dotfiles/karabiner/
+```
+
 ## Projects used
 
 [oh-my-zsh], [powerlevel10k], [SpaceVim]

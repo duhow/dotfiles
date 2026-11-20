@@ -32,3 +32,13 @@ TDIR=$HOME/.SpaceVim.d
 _log spacevim.toml $TDIR
 mkdir -p $TDIR
 cp -f spacevim.toml ${TDIR}/init.toml
+
+# Karabiner-Elements (macOS only)
+if [ "$(uname)" = "Darwin" ]; then
+  TDIR=$HOME/.config/karabiner
+  _log karabiner $TDIR
+  mkdir -p $TDIR
+  [ -e ${TDIR}/karabiner.json ] && cp -f ${TDIR}/karabiner.json ${TDIR}/karabiner.json.bak-$(date +%Y%m%d%H%M%S)
+  cp -f karabiner/karabiner.json ${TDIR}/karabiner.json
+  cp -Rf karabiner/assets ${TDIR}/
+fi
